@@ -1,4 +1,4 @@
-.PHONY: main run clean fclean re
+.PHONY: main run clean re
 
 main:
 	@go build
@@ -8,8 +8,5 @@ run: main
 
 clean:
 	rm task
-
-fclean: clean
-	rm tasks.db
 
 re: clean main

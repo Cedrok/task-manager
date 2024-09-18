@@ -2,8 +2,8 @@ package cmd
 
 import (
 	"fmt"
+	"net/http"
 	"strconv"
-	"task/db"
 
 	"github.com/spf13/cobra"
 )
@@ -22,11 +22,16 @@ var removeCmd = &cobra.Command{
 			}
 		}
 		for _, id := range ids {
-			err := db.DeleteTask(id)
+			req, err := http.NewRequest(http.MethodDelete, apiPath+"/tasks/"+strconv.Itoa(id), nil)
+			if err != nil {
+				fmt.Println(err)
+				return
+			}
+			_, err = http.DefaultClient.Do(req)
 			if err != nil {
 				fmt.Println(err)
 			} else {
-				fmt.Println("Task deleted")
+				fmt.Println("Task " + strconv.Itoa(id) + " deleted")
 			}
 		}
 

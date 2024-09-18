@@ -1,9 +1,11 @@
 package cmd
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
+	"net/http"
 	"strconv"
-	"task/db"
 
 	"github.com/spf13/cobra"
 )
@@ -22,7 +24,20 @@ var undoCmd = &cobra.Command{
 			}
 		}
 		for _, id := range ids {
-			err := db.CompleteTask(id, false)
+			postBody, err := json.Marshal("0")
+			if err != nil {
+				fmt.Println(err)
+				return
+			}
+			reqBody := bytes.NewBuffer(postBody)
+
+			req, err := http.NewRequest(http.MethodPut, apiPath+"/tasks/"+strconv.Itoa(id), reqBody)
+			if err != nil {
+				fmt.Println(err)
+				return
+			}
+			req.Header.Set("Content-Type", "application/json")
+			_, err = http.DefaultClient.Do(req)
 			if err != nil {
 				fmt.Println(err)
 			} else {
