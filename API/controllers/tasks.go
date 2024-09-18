@@ -9,7 +9,7 @@ import (
 
 func CreateTask(ctx *gofr.Context) (interface{}, error) {
 	var id = -1
-	tasks, err := GetTasks(nil)
+	tasks, err := GetTasks(ctx)
 	if err != nil {
 		return -1, err
 	}
