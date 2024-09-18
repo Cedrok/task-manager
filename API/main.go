@@ -1,22 +1,20 @@
 package main
 
 import (
-	"task-manager-api/controllers"
+	"os"
+	"task-manager/API/controllers"
 
+	"github.com/joho/godotenv"
 	"gofr.dev/pkg/gofr"
 )
 
 func main() {
+	godotenv.Load("configs/.env")
+	controllers.InitDB(os.Getenv("DB_NAME"))
+
 	// initialise gofr object
 	app := gofr.New()
 
-	controllers.InitDB(app.Config.Get("DB_NAME"))
-
-	// register route greet
-	app.GET("/greet", func(ctx *gofr.Context) (interface{}, error) {
-
-		return "Hello World!", nil
-	})
 	app.GET("/count", controllers.CountTasks)
 	app.GET("/tasks", controllers.GetTasks)
 

@@ -3,13 +3,8 @@ package controllers
 import (
 	"database/sql"
 	"log"
+	c "task-manager/common"
 )
-
-type Task struct {
-	Key        int    `json:"key"`
-	Value      string `json:"value"`
-	IsComplete bool   `json:"isComplete"`
-}
 
 func execStatment(db *sql.DB, stmt string) (sql.Result, error) {
 	var res sql.Result
@@ -23,8 +18,8 @@ func execStatment(db *sql.DB, stmt string) (sql.Result, error) {
 	}
 }
 
-func rowsToTasks(rows *sql.Rows) ([]Task, error) {
-	var tasks []Task
+func rowsToTasks(rows *sql.Rows) ([]c.Task, error) {
+	var tasks []c.Task
 	var err error
 
 	for rows.Next() {
@@ -35,7 +30,7 @@ func rowsToTasks(rows *sql.Rows) ([]Task, error) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		tasks = append(tasks, Task{Key: key, Value: value, IsComplete: isComplete})
+		tasks = append(tasks, c.Task{Key: key, Value: value, IsComplete: isComplete})
 	}
 	err = rows.Err()
 	if err != nil {

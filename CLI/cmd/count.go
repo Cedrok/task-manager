@@ -14,7 +14,7 @@ var countCmd = &cobra.Command{
 		if err != nil {
 			fmt.Println(err)
 		} else {
-			fmt.Printf("You have %v tasks to complete\n", resp["data"])
+			fmt.Printf("You have %v registered tasks.\n", resp["data"])
 		}
 	},
 }

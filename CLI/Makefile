@@ -1,7 +1,7 @@
 .PHONY: main run clean re
 
 main:
-	@go build
+	@go build -o task
 
 run: main
 	./task

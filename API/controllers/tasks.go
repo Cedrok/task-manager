@@ -3,6 +3,7 @@ package controllers
 import (
 	"fmt"
 	"strconv"
+	c "task-manager/common"
 
 	"gofr.dev/pkg/gofr"
 )
@@ -13,7 +14,7 @@ func CreateTask(ctx *gofr.Context) (interface{}, error) {
 	if err != nil {
 		return -1, err
 	}
-	for _, task := range tasks.([]Task) {
+	for _, task := range tasks.([]c.Task) {
 		if task.Key > id {
 			id = task.Key
 		}

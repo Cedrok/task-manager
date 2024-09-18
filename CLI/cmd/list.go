@@ -3,7 +3,8 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	"task/db"
+
+	c "task-manager/common"
 
 	"github.com/spf13/cobra"
 )
@@ -18,7 +19,7 @@ var listCmd = &cobra.Command{
 			return
 		}
 
-		var tasks []db.Task
+		var tasks []c.Task
 		b, err := json.Marshal(resp["data"])
 		if err != nil {
 			panic(err)
@@ -31,8 +32,8 @@ var listCmd = &cobra.Command{
 		if len(tasks) == 0 {
 			fmt.Println("You have no task to complete !")
 		} else {
-			var ongoingTasks []db.Task
-			var completedTasks []db.Task
+			var ongoingTasks []c.Task
+			var completedTasks []c.Task
 			for _, task := range tasks {
 				if task.IsComplete {
 					completedTasks = append(completedTasks, task)

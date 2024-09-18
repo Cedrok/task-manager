@@ -1,9 +1,13 @@
-module task-manager-api
+module task-manager
 
 go 1.22.4
 
-require gofr.dev v1.20.0
-require github.com/mattn/go-sqlite3 v1.14.23
+require (
+	github.com/joho/godotenv v1.5.1
+	github.com/mattn/go-sqlite3 v1.14.23
+	github.com/spf13/cobra v1.8.1
+	gofr.dev v1.20.0
+)
 
 require (
 	cloud.google.com/go v0.115.1 // indirect
@@ -38,7 +42,7 @@ require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.22.0 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
-	github.com/joho/godotenv v1.5.1 // indirect
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/klauspost/compress v1.17.9 // indirect
 	github.com/lib/pq v1.10.9 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
@@ -57,6 +61,7 @@ require (
 	github.com/redis/go-redis/v9 v9.6.1 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/segmentio/kafka-go v0.4.47 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/stretchr/testify v1.9.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.54.0 // indirect

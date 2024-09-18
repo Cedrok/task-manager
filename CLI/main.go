@@ -1,8 +1,6 @@
 package main
 
-import (
-	"task/cmd"
-)
+import "task-manager/CLI/cmd"
 
 func main() {
 	cmd.RootCmd.Execute()
