@@ -26,4 +26,5 @@ go.work.sum
 
 # project specific
 task
+task-api
 tasks.db

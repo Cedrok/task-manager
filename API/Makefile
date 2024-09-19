@@ -1,4 +1,4 @@
-APP_NAME = task
+APP_NAME = task-api
 
 .PHONY: main run clean re
 

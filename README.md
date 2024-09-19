@@ -16,7 +16,7 @@ DB_DIALECT=sqlite
 # Launching API
 ```
 cd API
-go run main.go
+make run
 ```
 
 # Using CLI
