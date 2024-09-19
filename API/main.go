@@ -12,7 +12,6 @@ func main() {
 	godotenv.Load("configs/.env")
 	controllers.InitDB(os.Getenv("DB_NAME"))
 
-	// initialise gofr object
 	app := gofr.New()
 
 	app.GET("/count", controllers.CountTasks)

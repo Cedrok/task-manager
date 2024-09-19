@@ -10,7 +10,7 @@ var countCmd = &cobra.Command{
 	Use:   "count",
 	Short: "Counts tasks to complete.",
 	Run: func(cmd *cobra.Command, args []string) {
-		resp, err := getBody(apiPath + "/count")
+		resp, err := getBody(ApiPath + "/count")
 		if err != nil {
 			fmt.Println(err)
 		} else {

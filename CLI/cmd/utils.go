@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-const apiPath = "http://localhost:9000"
+var ApiPath string
 
 func getBody(path string) (map[string]interface{}, error) {
 	resp, err := http.Get(path)

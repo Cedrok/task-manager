@@ -22,7 +22,7 @@ var removeCmd = &cobra.Command{
 			}
 		}
 		for _, id := range ids {
-			req, err := http.NewRequest(http.MethodDelete, apiPath+"/tasks/"+strconv.Itoa(id), nil)
+			req, err := http.NewRequest(http.MethodDelete, ApiPath+"/tasks/"+strconv.Itoa(id), nil)
 			if err != nil {
 				fmt.Println(err)
 				return

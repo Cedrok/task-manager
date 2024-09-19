@@ -14,7 +14,7 @@ var listCmd = &cobra.Command{
 	Short: "Lists all of your tasks.",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		resp, err := getBody(apiPath + "/tasks")
+		resp, err := getBody(ApiPath + "/tasks")
 		if err != nil {
 			return
 		}
@@ -45,13 +45,13 @@ var listCmd = &cobra.Command{
 			if len(ongoingTasks) > 0 {
 				fmt.Println("You have the following tasks to do:")
 				for _, task := range ongoingTasks {
-					fmt.Printf("%v: %s\n", task.Key, task.Value)
+					fmt.Printf("\t%v: %s\n", task.Key, task.Value)
 				}
 			}
 			if len(completedTasks) > 0 {
 				fmt.Println("You have already complete the following tasts:")
 				for _, task := range completedTasks {
-					fmt.Printf("%v: %s\n", task.Key, task.Value)
+					fmt.Printf("\t%v: %s\n", task.Key, task.Value)
 				}
 			}
 		}

@@ -31,7 +31,7 @@ var doCmd = &cobra.Command{
 			}
 			reqBody := bytes.NewBuffer(postBody)
 
-			req, err := http.NewRequest(http.MethodPut, apiPath+"/tasks/"+strconv.Itoa(id), reqBody)
+			req, err := http.NewRequest(http.MethodPut, ApiPath+"/tasks/"+strconv.Itoa(id), reqBody)
 			if err != nil {
 				fmt.Println(err)
 				return

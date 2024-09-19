@@ -22,7 +22,7 @@ var addCmd = &cobra.Command{
 		postBody, _ := json.Marshal(task)
 		reqBody := bytes.NewBuffer(postBody)
 
-		resp, err := http.Post(apiPath+"/tasks", "application/json", reqBody)
+		resp, err := http.Post(ApiPath+"/tasks", "application/json", reqBody)
 		if err != nil {
 			return
 		} else {
