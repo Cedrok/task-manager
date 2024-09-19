@@ -6,18 +6,6 @@ import (
 	c "task-manager/common"
 )
 
-func execStatment(db *sql.DB, stmt string) (sql.Result, error) {
-	var res sql.Result
-	var err error
-	res, err = db.Exec(stmt)
-	if err != nil {
-		log.Printf("%q: %s\n", err, stmt)
-		return nil, err
-	} else {
-		return res, nil
-	}
-}
-
 func rowsToTasks(rows *sql.Rows) ([]c.Task, error) {
 	var tasks []c.Task
 	var err error

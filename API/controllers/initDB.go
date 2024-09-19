@@ -31,7 +31,11 @@ func CreateDB(path string) {
 	defer db.Close()
 
 	sqlStmt := `create table tasks (key integer not null primary key, value text, isComplete integer not null);`
-	execStatment(db, sqlStmt)
+	_, err = db.Exec(sqlStmt)
+	if err != nil {
+		fmt.Printf("Error on %s: %q", sqlStmt, err)
+		os.Exit(1)
+	}
 }
 
 func CheckDB(path string) bool {
