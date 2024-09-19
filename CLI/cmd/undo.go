@@ -41,7 +41,7 @@ var undoCmd = &cobra.Command{
 			if err != nil {
 				fmt.Println(err)
 			} else {
-				fmt.Println("Task marked as not complete")
+				fmt.Printf("Task %v marked as not complete\n", id)
 			}
 		}
 

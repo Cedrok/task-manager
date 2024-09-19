@@ -4,11 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"strings"
-
-	"io"
 
 	"github.com/spf13/cobra"
 )
@@ -36,7 +35,7 @@ var addCmd = &cobra.Command{
 			var res = make(map[string]interface{})
 			json.Unmarshal(body, &res)
 
-			fmt.Printf("Added \"%s\" to your task list at index %v.\n", task, res["data"])
+			fmt.Printf("Add \"%s\" to your task list at index %v.\n", task, res["data"])
 		}
 	},
 }

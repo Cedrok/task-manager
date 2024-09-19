@@ -41,10 +41,9 @@ var doCmd = &cobra.Command{
 			if err != nil {
 				fmt.Println(err)
 			} else {
-				fmt.Println("Task marked as complete")
+				fmt.Printf("Task %v marked as complete\n", id)
 			}
 		}
-
 	},
 }
 

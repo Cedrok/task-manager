@@ -49,7 +49,7 @@ var listCmd = &cobra.Command{
 				}
 			}
 			if len(completedTasks) > 0 {
-				fmt.Println("You have already complete the following tasts:")
+				fmt.Println("You have already complete the following tasks:")
 				for _, task := range completedTasks {
 					fmt.Printf("\t%v: %s\n", task.Key, task.Value)
 				}
