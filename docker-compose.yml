@@ -1,0 +1,13 @@
+services:
+  tm-api:
+    build:
+      dockerfile: API/Dockerfile
+    container_name: task-manager-api
+    ports:
+      - 9000:9000
+    restart: on-failure:10
+    volumes:
+      - db:/task-manager/db
+
+volumes:
+  db:
